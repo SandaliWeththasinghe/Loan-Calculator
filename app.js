@@ -13,7 +13,9 @@ function calculateResults(e) {
   const totalInterest = document.getElementById('total-interest');
 
   const principal = parseFloat(amount.value);
+  // Monthly Interest
   const calculateInterest = parseFloat(interest.value) / 100 / 12;
+  // Number of months to repay 
   const calculatePayments = parseFloat(years.value) * 12;
 
   // Compute Monthly Payment
@@ -48,4 +50,12 @@ function showError(error){
 
   // Insert error above heading
   card.insertBefore(errorDiv, heading);
+
+  // Clear error after 3 seconds
+  setTimeout(clearError, 3000);
+}
+
+// Clear error
+function clearError() {
+  document.querySelector('.alert').remove();
 }
